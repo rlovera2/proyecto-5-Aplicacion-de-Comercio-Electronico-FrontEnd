@@ -1,6 +1,7 @@
 import Header from "../components/Header";
-import { useState } from "react";
-import { loginService } from "../services/authServices";
+import { useState, useContext } from "react";
+import AuthContext from "../context/AuthContext";
+// import { loginService } from "../services/authServices";
 
 const initForm = {
   user_name: "",
@@ -9,6 +10,9 @@ const initForm = {
 
 const LoginPage = () => {
   const [form, setForm] = useState(initForm);
+  // const [user, setUser] = useState({});
+
+  const { user, iniciarSesion } = useContext(AuthContext);
 
   const handleChange = (e) => {
     setForm({
@@ -20,12 +24,7 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const res = await loginService(form);
-      console.log(res.data);
-    } catch (error) {
-      console.log(error.response.data);
-    }
+    await iniciarSesion(form);
 
     setForm(initForm);
   };
@@ -70,6 +69,12 @@ const LoginPage = () => {
           </form>
         </article>
       </main>
+      <section className="row">
+        <article className="col">
+          <pre>{JSON.stringify(user, null, 2)}</pre>
+          {/* {user?.user_name} */}
+        </article>
+      </section>
     </>
   );
 };
