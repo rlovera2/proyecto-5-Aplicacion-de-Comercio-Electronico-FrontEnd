@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../context/AuthContext";
 
 const PublicNavbar = () => {
+  const { logout } = useContext(AuthContext);
   return (
     <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
       <div className="container">
@@ -74,6 +77,15 @@ const PublicNavbar = () => {
                   >
                     Registro
                   </NavLink>
+                </li>
+                <li>
+                  <button
+                    className="dropdown-item"
+                    type="button"
+                    onClick={logout}
+                  >
+                    Logout
+                  </button>
                 </li>
               </ul>
             </li>
