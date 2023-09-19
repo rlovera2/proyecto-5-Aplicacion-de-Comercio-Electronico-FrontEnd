@@ -8,7 +8,7 @@ const reducer = (globalState, action) => {
     case "OBTENER_PRODUCTO":
       return {
         ...globalState,
-        products: action.payload,
+        product: action.payload,
       };
     default:
       return globalState;

@@ -8,7 +8,7 @@ const initialState = {
   product: {},
 };
 
-const ProductState = (children) => {
+const ProductState = ({ children }) => {
   const [globalState] = useReducer(productReducer, initialState);
 
   const getProducts = () => {};

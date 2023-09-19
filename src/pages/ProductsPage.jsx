@@ -3,8 +3,7 @@ import Header from "../components/Header";
 const ProductsPage = () => {
   return (
     <>
-     <Header title="Products Page" />
-     
+      <Header title="Products Page" />
 
       <main className="row">
         <article className="col">
