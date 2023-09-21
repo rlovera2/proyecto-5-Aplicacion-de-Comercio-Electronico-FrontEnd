@@ -30,7 +30,7 @@ const ProductState = ({ children }) => {
   );
 };
 
-ProductState.prototype = {
+ProductState.propTypes = {
   children: PropTypes.node,
 };
 
