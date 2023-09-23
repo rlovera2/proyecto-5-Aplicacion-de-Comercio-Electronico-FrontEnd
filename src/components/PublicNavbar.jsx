@@ -66,7 +66,7 @@ const PublicNavbar = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Cuenta
+                Account
               </a>
               <ul className="dropdown-menu dropdown-menu-end">
                 <li>
@@ -86,7 +86,7 @@ const PublicNavbar = () => {
                     }
                     to="/register"
                   >
-                    Registro
+                    Account registraion
                   </NavLink>
                 </li>
                 <li>
