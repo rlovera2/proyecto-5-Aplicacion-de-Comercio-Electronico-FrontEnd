@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import ProductContext from "../context/ProductContext";
 import { Link } from "react-router-dom";
 
@@ -12,40 +12,41 @@ import { Link } from "react-router-dom";
 const ProductsPage = () => {
   const { getProducts, products } = useContext(ProductContext);
 
-  const handleClick = async () => {
-    await getProducts();
-  };
+  // const handleClick = async () => {
+  //   await getProducts();
+  // };
 
   const handleAddProduct = (id) => {
     console.log(id);
   };
+
+  useEffect(() => {
+    getProducts();
+  }, [getProducts]);
+
   return (
     <>
       <Header title="Products" />
-      <br />
-      <main className="row">
-        <article className="col">
-          <button type="button" onClick={handleClick}>
-            Get products
-          </button>
-        </article>
-      </main>
       <br />
 
       <div className="row row-cols-1 row-cols-md-3 g-4">
         {products.map((product) => (
           <div key={product.id} className="col">
             <div className="card">
-              <img
-                src={product.image}
-                className="card-img-top"
-                alt={product.name}
-              />
+              <Link to={`/products/${product.id}`}>
+                <img
+                  src={product.image}
+                  className="card-img-top"
+                  alt={product.name}
+                />
+              </Link>
               <div className="card-body">
                 <h5 className="card-title">{product.name}</h5>
-                <p className="card-text">
-                  US$ <h5>{product.price}</h5>
-                </p>
+                US$
+                <h4>
+                  <p className="card-text">{product.price}</p>
+                </h4>
+                ``
                 <div className="d-flex justify-content-between">
                   <button
                     type="button"

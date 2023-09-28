@@ -1,24 +1,32 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import ProductContext from "../context/ProductContext";
 import { useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const ProductPage = () => {
   const { getProduct, product } = useContext(ProductContext);
   const { id } = useParams();
 
-  const handleClick = async () => {
-    await getProduct(id);
-  };
+  // const handleClick = async () => {
+  //   await getProduct(id);
+  // };
+
+  useEffect(() => {
+    getProduct(id);
+  }, [getProduct, id]);
 
   return (
     <>
-      <main className="row">
-        <article className="col">
-          <button type="button" onClick={handleClick}>
-            Get product
-          </button>
-        </article>
-      </main>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? "nav-link active" : "nav-link"
+        }
+        aria-current="page"
+        to="/products"
+      >
+        <h6>Products</h6>
+      </NavLink>
+      <br />
       <section className="row">
         <article className="col">
           {product && (
@@ -35,11 +43,14 @@ const ProductPage = () => {
                   <div className="card-body">
                     <h5 className="card-title">{product.name}</h5>
                     <p className="card-text">{product.description}</p>
-                    <p className="card-text">
-                      <small className="text-body-secondary">
-                        US$ <h5>{product.price}</h5>
-                      </small>
-                    </p>
+                    US$
+                    <h4>
+                      <p className="card-text">
+                        {/* <small className="text-body-secondary"> */}
+                        {product.price}
+                        {/* </small> */}
+                      </p>
+                    </h4>
                   </div>
                 </div>
               </div>
