@@ -1,9 +1,9 @@
 import Header from "../components/Header";
 
-const AboutPage = () => {
+const CartPage = () => {
   return (
     <>
-      <Header title="About Page" />
+      <Header title="Cart Page" />
 
       <main className="row">
         <article className="col">
@@ -14,4 +14,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default CartPage;
