@@ -1,15 +1,16 @@
 import Header from "../components/Header";
+import { useContext } from "react";
+import ProductContext from "../context/ProductContext";
 
 const CartPage = () => {
+  const { cart } = useContext(ProductContext);
   return (
     <>
       <Header title="Cart Page" />
 
-      <main className="row">
-        <article className="col">
-          <p>Contenido de la pagina acerca de</p>
-        </article>
-      </main>
+      {cart.map((item) => (
+        <div key={item.id}>{item.name}</div>
+      ))}
     </>
   );
 };

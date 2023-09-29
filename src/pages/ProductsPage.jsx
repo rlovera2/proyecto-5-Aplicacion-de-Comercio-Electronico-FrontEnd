@@ -10,14 +10,15 @@ import { Link } from "react-router-dom";
 //import manos3 from "../img/manos3.jpg";
 
 const ProductsPage = () => {
-  const { getProducts, products } = useContext(ProductContext);
+  const { getProducts, products, addProduct } = useContext(ProductContext);
 
   // const handleClick = async () => {
   //   await getProducts();
   // };
 
   const handleAddProduct = (id) => {
-    console.log(id);
+    //console.log(id);
+    addProduct(id);
   };
 
   useEffect(() => {
@@ -46,7 +47,6 @@ const ProductsPage = () => {
                 <h4>
                   <p className="card-text">{product.price}</p>
                 </h4>
-                ``
                 <div className="d-flex justify-content-between">
                   <button
                     type="button"

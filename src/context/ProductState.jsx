@@ -11,6 +11,7 @@ import {
 const initialState = {
   products: [],
   product: {},
+  cart: [],
 };
 
 const ProductState = ({ children }) => {
@@ -55,6 +56,15 @@ const ProductState = ({ children }) => {
     });
   }, []);
 
+  const addProduct = async (id) => {
+    const response = await getProductService(id);
+
+    dispatch({
+      type: "AGREGAR_PRODUCTO",
+      payload: response.data.data,
+    });
+  };
+
   return (
     <>
       <ProductContext.Provider
@@ -63,6 +73,8 @@ const ProductState = ({ children }) => {
           product: globalState.product,
           getProducts,
           getProduct,
+          addProduct,
+          cart: globalState.cart,
         }}
       >
         {children}

@@ -4,12 +4,17 @@ import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 const ProductPage = () => {
-  const { getProduct, product } = useContext(ProductContext);
+  const { getProduct, product, addProduct } = useContext(ProductContext);
   const { id } = useParams();
 
   // const handleClick = async () => {
   //   await getProduct(id);
   // };
+
+  const handleAddProduct = (id) => {
+    //console.log(id);
+    addProduct(id);
+  };
 
   useEffect(() => {
     getProduct(id);
@@ -51,6 +56,14 @@ const ProductPage = () => {
                         {/* </small> */}
                       </p>
                     </h4>
+                    <br />
+                    <button
+                      type="button"
+                      className="btn btn-warning btn-lg"
+                      onClick={() => handleAddProduct(product.id)}
+                    >
+                      <i className="bi bi-cart-plus" />
+                    </button>
                   </div>
                 </div>
               </div>
