@@ -56,6 +56,7 @@ const ProductPage = () => {
                         {/* </small> */}
                       </p>
                     </h4>
+                    <h6>Available in stock [ {product.quantity} ] units </h6>
                     <br />
                     <button
                       type="button"

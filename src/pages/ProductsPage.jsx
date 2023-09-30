@@ -47,6 +47,7 @@ const ProductsPage = () => {
                 <h4>
                   <p className="card-text">{product.price}</p>
                 </h4>
+                <h6>Available in stock [ {product.quantity} ] units </h6>
                 <div className="d-flex justify-content-between">
                   <button
                     type="button"
