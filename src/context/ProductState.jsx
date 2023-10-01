@@ -72,6 +72,12 @@ const ProductState = ({ children }) => {
       timer: 2000,
     });
   };
+  const deleteCartProduct = (id) => {
+    dispatch({
+      type: "ELIMINAR_PRODUCTO",
+      payload: id,
+    });
+  };
 
   return (
     <>
@@ -83,6 +89,7 @@ const ProductState = ({ children }) => {
           getProduct,
           addProduct,
           cart: globalState.cart,
+          deleteCartProduct,
         }}
       >
         {children}

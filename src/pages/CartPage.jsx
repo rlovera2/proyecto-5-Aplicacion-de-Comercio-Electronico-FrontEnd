@@ -4,10 +4,10 @@ import ProductContext from "../context/ProductContext";
 //import { Link } from "react-router-dom";
 
 const CartPage = () => {
-  const { cart } = useContext(ProductContext);
+  const { cart, deleteCartProduct } = useContext(ProductContext);
 
   const handleDeleteProduct = (id) => {
-    console.log(id);
+    deleteCartProduct(id);
   };
   return (
     <>

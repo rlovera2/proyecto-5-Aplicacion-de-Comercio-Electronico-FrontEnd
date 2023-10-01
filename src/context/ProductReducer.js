@@ -14,7 +14,19 @@ const reducer = (globalState, action) => {
     case "AGREGAR_PRODUCTO":
       return {
         ...globalState,
-        cart: [...globalState.cart, action.payload],
+        cart: globalState.cart.find(
+          (product) => product.id === action.payload.id
+        )
+          ? [...globalState.cart]
+          : [...globalState.cart, action.payload],
+      };
+
+    case "ELIMINAR_PRODUCTO":
+      return {
+        ...globalState,
+        cart: globalState.cart.filter(
+          (product) => product.id !== action.payload
+        ),
       };
     default:
       return globalState;
