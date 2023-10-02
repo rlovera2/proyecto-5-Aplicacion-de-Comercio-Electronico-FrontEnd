@@ -19,13 +19,22 @@ const ProductState = ({ children }) => {
   const [globalState, dispatch] = useReducer(productReducer, initialState);
 
   const getProducts = useCallback(async () => {
-    const response = await getProductsService();
-    //console.log(response.data.data);
+    try {
+      const response = await getProductsService();
+      //console.log(response.data.data);
 
-    dispatch({
-      type: "OBTENER_PRODUCTOS",
-      payload: response.data.data,
-    });
+      dispatch({
+        type: "OBTENER_PRODUCTOS",
+        payload: response.data.data,
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Error geting products list",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    }
   }, []);
 
   // const getProducts = async () => {
@@ -48,35 +57,63 @@ const ProductState = ({ children }) => {
   // };
 
   const getProduct = useCallback(async (id) => {
-    const response = await getProductService(id);
-    //console.log(response.data.data);
+    try {
+      const response = await getProductService(id);
+      //console.log(response.data.data);
 
-    dispatch({
-      type: "OBTENER_PRODUCTO",
-      payload: response.data.data,
-    });
+      dispatch({
+        type: "OBTENER_PRODUCTO",
+        payload: response.data.data,
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Error geting product detail",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    }
   }, []);
 
   const addProduct = async (id) => {
-    const response = await getProductService(id);
+    try {
+      const response = await getProductService(id);
 
-    dispatch({
-      type: "AGREGAR_PRODUCTO",
-      payload: response.data.data,
-    });
+      dispatch({
+        type: "AGREGAR_PRODUCTO",
+        payload: response.data.data,
+      });
 
-    Swal.fire({
-      icon: "success",
-      title: "The product was added to the cart",
-      showConfirmButton: false,
-      timer: 2000,
-    });
+      Swal.fire({
+        icon: "success",
+        title: "The product was added to the cart",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Error adding product to cart",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    }
   };
+
   const deleteCartProduct = (id) => {
-    dispatch({
-      type: "ELIMINAR_PRODUCTO",
-      payload: id,
-    });
+    try {
+      dispatch({
+        type: "ELIMINAR_PRODUCTO",
+        payload: id,
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Error removing product from cart",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    }
   };
 
   return (

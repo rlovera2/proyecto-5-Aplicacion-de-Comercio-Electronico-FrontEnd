@@ -5,6 +5,7 @@ const reducer = (globalState, action) => {
         ...globalState,
         products: action.payload,
       };
+
     case "OBTENER_PRODUCTO":
       return {
         ...globalState,
