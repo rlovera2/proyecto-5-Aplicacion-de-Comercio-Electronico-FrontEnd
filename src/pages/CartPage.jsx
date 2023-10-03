@@ -1,14 +1,20 @@
 import Header from "../components/Header";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import ProductContext from "../context/ProductContext";
 //import { Link } from "react-router-dom";
 
 const CartPage = () => {
   const { cart, deleteCartProduct } = useContext(ProductContext);
+  const [ammount, setAmmount] = useState(0);
 
   const handleDeleteProduct = (id) => {
     deleteCartProduct(id);
   };
+
+  useEffect(() => {
+    setAmmount(cart.reduce((acc, product) => acc + product.price, 0));
+  }, [cart]);
+
   return (
     <>
       <Header title="Cart" />
@@ -32,10 +38,8 @@ const CartPage = () => {
                   <div className="card-body">
                     <h5 className="card-title">{item.name}</h5>
                     <p className="card-text">{item.description}</p>
-                    <p className="card-text">
-                      US$
-                      <h4>{item.price}</h4>
-                    </p>
+                    <p className="card-text">US$</p>
+                    <p className="fs-3">{item.price}</p>
 
                     <div className="d-flex justify-content-end">
                       <button
@@ -53,6 +57,12 @@ const CartPage = () => {
           ))}
         </article>
       </main>
+      <section className="row">
+        <article className="col">
+          <p className="fs-1">Total:</p>
+          <p className="fs-2">{ammount}</p>
+        </article>
+      </section>
     </>
   );
 };
