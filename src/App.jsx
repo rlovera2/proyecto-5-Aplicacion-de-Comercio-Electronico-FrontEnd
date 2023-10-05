@@ -15,7 +15,7 @@ const App = () => {
         <PayPalScriptProvider
           options={{
             "cliente-id":
-              "Ach_kO1LQpE3jIz20dpuxBnfPNSclcFb-eQB5H6z-O3tXv-3gTrCHOgJj4SRo9WWaT7qFntunlrhyWEU",
+              "AbkDYj-HH8WknAGuonC6yATNHFU38Fw4waaA0LyKUqElnwzLOnmrKmSPwlIAFzNBBJS3oZaET0Tc-MCV",
           }}
         >
           {/* ARx4d5eWP-JPPqGpXIsVyiHxkBcjUG6KIdsB9LdRE_PrrC6kvpHpJ8FgdQpjvjEB7ZWQ3sn-fKwW0T6U ----> este ID de jesus */}
