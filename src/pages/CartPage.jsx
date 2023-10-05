@@ -1,6 +1,8 @@
 import Header from "../components/Header";
 import { useContext, useState, useEffect } from "react";
 import ProductContext from "../context/ProductContext";
+import PaypalCheckoutButton from "../components/PayPalButton";
+
 //import { Link } from "react-router-dom";
 
 const CartPage = () => {
@@ -59,8 +61,22 @@ const CartPage = () => {
       </main>
       <section className="row">
         <article className="col">
-          <p className="fs-1">Total:</p>
-          <p className="fs-2">{ammount}</p>
+          {cart.length > 0 ? (
+            <>
+              <p className="fs-1">Total:</p>
+              <p className="fs-2">{ammount}</p>
+              <PaypalCheckoutButton
+                currency="USD"
+                amount={ammount}
+                showSpinner={false}
+              />
+            </>
+          ) : (
+            <>
+              <br />
+              <p className="fs-2">No hay productos en el carrito</p>
+            </>
+          )}
         </article>
       </section>
     </>

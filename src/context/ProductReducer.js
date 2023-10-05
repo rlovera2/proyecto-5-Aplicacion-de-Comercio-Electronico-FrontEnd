@@ -29,6 +29,13 @@ const reducer = (globalState, action) => {
           (product) => product.id !== action.payload
         ),
       };
+
+    case "VACIAR_CARRITO":
+      return {
+        ...globalState,
+        cart: [],
+      };
+
     default:
       return globalState;
   }
