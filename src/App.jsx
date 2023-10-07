@@ -19,7 +19,8 @@ const App = () => {
           }}
         >
           {/* ARx4d5eWP-JPPqGpXIsVyiHxkBcjUG6KIdsB9LdRE_PrrC6kvpHpJ8FgdQpjvjEB7ZWQ3sn-fKwW0T6U ----> este ID de jesus */}
-          {/* AbkDYj-HH8WknAGuonC6yATNHFU38Fw4waaA0LyKUqElnwzLOnmrKmSPwlIAFzNBBJS3oZaET0Tc-MCV ----> este ID personal */}
+          {/* AbkDYj-HH8WknAGuonC6yATNHFU38Fw4waaA0LyKUqElnwzLOnmrKmSPwlIAFzNBBJS3oZaET0Tc-MCV ----> este ID personal merchant */}
+          {/* AVnUAUn8bBrFL1lMuLmMFNK0_0TMPiImT0qiBQrDAeqSDhgtI9BEm09B_NObuJUi80AevascTca8iqkn ----> este ID personal platform */}
           <ProductState>
             <AppRouter />
           </ProductState>

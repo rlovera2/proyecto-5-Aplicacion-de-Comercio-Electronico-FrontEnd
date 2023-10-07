@@ -1,5 +1,6 @@
 const reducer = (globalState, action) => {
   switch (action.type) {
+    //Esta accion se puede usar tanto para "INICIAR_SESION" como para "CREAR_USUARIO" la respuesta es la misma
     case "INICIAR_SESION":
       return {
         ...globalState,

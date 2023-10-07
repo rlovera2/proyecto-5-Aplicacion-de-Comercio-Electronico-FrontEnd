@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import { useContext, useState, useEffect } from "react";
 import ProductContext from "../context/ProductContext";
 import PaypalCheckoutButton from "../components/PayPalButton";
-
+//import AuthContext from "../context/AuthContext";
 //import { Link } from "react-router-dom";
 
 const CartPage = () => {
@@ -20,9 +20,6 @@ const CartPage = () => {
   return (
     <>
       <Header title="Cart" />
-      {/* {cart.map((item) => (
-        <div key={item.id}>{item.name}</div>
-      ))} */}
 
       <main className="row">
         <article className="col">
@@ -65,6 +62,7 @@ const CartPage = () => {
             <>
               <p className="fs-1">Total:</p>
               <p className="fs-2">{ammount}</p>
+              <p>Boton Paypal</p>
               <PaypalCheckoutButton
                 currency="USD"
                 amount={ammount}

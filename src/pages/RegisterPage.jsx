@@ -1,15 +1,80 @@
 import Header from "../components/Header";
+import { useState, useContext } from "react";
+import AuthContext from "../context/AuthContext";
+// import { loginService } from "../services/authServices";
+
+const initForm = {
+  user_name: "",
+  password: "",
+};
 
 const RegisterPage = () => {
+  const [form, setForm] = useState(initForm);
+  // const [user, setUser] = useState({});
+
+  const { user, registrarUsuario } = useContext(AuthContext);
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    await registrarUsuario(form);
+
+    setForm(initForm);
+  };
+
   return (
     <>
-   <Header title="Register Page" />
+      <Header title="Register Page" />
 
       <main className="row">
         <article className="col">
-          <p>Formulario de registro</p>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label htmlFor="inputUserName" className="form-label">
+                User Name
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="inputUserName"
+                name="user_name"
+                value={form.user_name}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="inputPassword" className="form-label">
+                Password
+              </label>
+              <input
+                type="password"
+                className="form-control"
+                id="inputPassword"
+                name="password"
+                value={form.password}
+                onChange={handleChange}
+              />
+            </div>
+
+            <button type="submit" className="btn btn-primary">
+              Create Account
+            </button>
+          </form>
         </article>
       </main>
+      <section className="row">
+        <article className="col">
+          <pre>{JSON.stringify(user, null, 2)}</pre>
+          {/* {user?.user_name} */}
+        </article>
+      </section>
     </>
   );
 };

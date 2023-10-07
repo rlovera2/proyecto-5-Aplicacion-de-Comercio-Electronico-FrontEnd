@@ -8,4 +8,9 @@ const loginService = async (form) => {
   return resp;
 };
 
-export { loginService };
+const registerService = async (form) => {
+  const resp = await axios.post(`${URL_ROOT}/register`, form);
+  return resp;
+};
+
+export { loginService, registerService };
