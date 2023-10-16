@@ -4,7 +4,7 @@ import AuthContext from "../context/AuthContext";
 import ProductContext from "../context/ProductContext";
 
 const PublicNavbar = () => {
-  const { auth, logout } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
   const { cart } = useContext(ProductContext);
   return (
     <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
@@ -79,38 +79,55 @@ const PublicNavbar = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Account
+                {user.user_name ? user.user_name : "Account"}
               </a>
               <ul className="dropdown-menu dropdown-menu-end">
-                <li>
-                  <NavLink
-                    className={({ isActive }) =>
-                      isActive ? "dropdown-item active" : "dropdown-item"
-                    }
-                    to="/login"
-                  >
-                    Login
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    className={({ isActive }) =>
-                      isActive ? "dropdown-item active" : "dropdown-item"
-                    }
-                    to="/register"
-                  >
-                    Account registraion
-                  </NavLink>
-                </li>
-                <li>
-                  <button
-                    className="dropdown-item"
-                    type="button"
-                    onClick={logout}
-                  >
-                    Logout
-                  </button>
-                </li>
+                {user.user_name ? (
+                  <>
+                    <li>
+                      <NavLink
+                        className={({ isActive }) =>
+                          isActive ? "dropdown-item active" : "dropdown-item"
+                        }
+                        to="/profile"
+                      >
+                        Profile
+                      </NavLink>
+                    </li>
+                    <li>
+                      <button
+                        className="dropdown-item"
+                        type="button"
+                        onClick={logout}
+                      >
+                        Logout
+                      </button>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li>
+                      <NavLink
+                        className={({ isActive }) =>
+                          isActive ? "dropdown-item active" : "dropdown-item"
+                        }
+                        to="/login"
+                      >
+                        Login
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        className={({ isActive }) =>
+                          isActive ? "dropdown-item active" : "dropdown-item"
+                        }
+                        to="/register"
+                      >
+                        Account registraion
+                      </NavLink>
+                    </li>
+                  </>
+                )}
               </ul>
             </li>
           </ul>
