@@ -69,7 +69,7 @@ const CartPage = () => {
                 <>
                   <p>Boton Paypal</p>
                   <PaypalCheckoutButton
-                    currency="USD"
+                    currency={"USD"}
                     amount={ammount}
                     showSpinner={false}
                   />
