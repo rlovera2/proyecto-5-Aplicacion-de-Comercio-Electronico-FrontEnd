@@ -15,6 +15,7 @@ import ProductsPage from "../pages/ProductsPage";
 import ProductPage from "../pages/ProductPage";
 import CartPage from "../pages/CartPage";
 import ProfilePage from "../pages/ProfilePage";
+import Images from "../img/manos6.jpg";
 
 import { useContext, useEffect } from "react";
 import AuthContext from "../context/AuthContext";
@@ -36,6 +37,7 @@ const AppRouter = () => {
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/products/:id" element={<ProductPage />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="src/img" element={<Images />} />
 
           {user.user_name ? (
             <>
@@ -47,7 +49,6 @@ const AppRouter = () => {
               <Route path="/register" element={<RegisterPage />} />
             </>
           )}
-
           <Route path="/*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>

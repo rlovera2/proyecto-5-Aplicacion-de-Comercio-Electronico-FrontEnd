@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 
 /************IMPORTANDP IMAGENES  *******/
 
-//import manos1 from "../img/manos1.jpg";
-//import manos2 from "../img/manos2.jpg";
-//import manos3 from "../img/manos3.jpg";
+// import manos1 from "../img/manos1.jpg";
+// import manos2 from "../img/manos2.jpg";
+// import manos6 from "../img/manos6.jpg";
 
 const ProductsPage = () => {
   const { getProducts, products, addProduct } = useContext(ProductContext);
@@ -25,11 +25,22 @@ const ProductsPage = () => {
     getProducts();
   }, [getProducts]);
 
+  // function Images(ruta, nombre) {
+  //   return (
+  //     <>
+  //       {/* <img src="../img/manos5.jpg" alt="Manos 5" /> */}
+
+  //       <img src={ruta} alt={nombre} className="card-img-top" />
+  //     </>
+  //   );
+  // }
+
   return (
     <>
       <Header title="Products" />
-      <br />
 
+      <br />
+      {/* {Images(manos6)} */}
       <div className="row row-cols-1 row-cols-md-3 g-4">
         {products.map((product) => (
           <div key={product.id} className="col">
@@ -39,8 +50,12 @@ const ProductsPage = () => {
                   src={product.image}
                   className="card-img-top"
                   alt={product.name}
+                  name={product.image.substring(8, 14)}
                 />
+
+                {/* {Images(product.image, product.name)} */}
               </Link>
+              {console.log(product.image.substring(7, 13))}
               <div className="card-body">
                 <h5 className="card-title">{product.name}</h5>
                 US$
