@@ -1,12 +1,18 @@
 import { useContext, useEffect } from "react";
 import ProductContext from "../context/ProductContext";
 import { useParams } from "react-router-dom";
-
-//import manos2 from "../img/manos2.jpg";
+//import manos from "../img/manos1.jpg";
 
 const ProductPage = () => {
   const { getProduct, product, addProduct } = useContext(ProductContext);
   const { id } = useParams();
+
+  // const rutaIMG = () => {
+  //   {product.map((item) => ())
+  //   if (product.image == "manos1") {
+  //     import manos1 from "../img/manos1.jpg";
+  //   }
+  // };
 
   // const handleClick = async () => {
   //   await getProduct(id);
