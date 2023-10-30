@@ -48,9 +48,9 @@ const ProductsPage = () => {
           <div key={product.id} className="col">
             <div className="card">
               <Link to={`/products/${product.id}`}>
-                {console.log(manos1 + " el codigo")}
+                {/* {console.log(manos1 + " el codigo")}
                 {console.log(product.image + " la bd")}
-                {console.log(product.image.substring(9, 15))}
+                {console.log(product.image.substring(9, 15))} */}
                 {product.image == "manos1" ? (
                   <>
                     <img
