@@ -4,9 +4,11 @@ import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const ProductPage = () => {
-  const { getProduct, product, addProduct } = useContext(ProductContext);
+  const { getProduct, product, addProduct, nameIMG } =
+    useContext(ProductContext);
   const { id } = useParams();
-  let srcIMG = "/src/img/" + product.image + ".jpg";
+
+  let srcIMG = "../img/" + product.image + ".jpg";
 
   // const rutaIMG = () => {
   //   {product.map((item) => ())
@@ -39,7 +41,8 @@ const ProductPage = () => {
               <div className="row g-0">
                 <div className="col-md-4">
                   {/* {console.log(product.image)} */}
-                  {console.log(srcIMG)}
+                  {/* {console.log(srcIMG)} */}
+                  {console.log(nameIMG)}
                   <img
                     src={srcIMG}
                     className="img-fluid rounded-start"

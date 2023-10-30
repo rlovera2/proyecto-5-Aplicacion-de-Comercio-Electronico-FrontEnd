@@ -14,7 +14,7 @@ import manos6 from "../img/manos6.jpg";
 
 const ProductsPage = () => {
   const { getProducts, products, addProduct } = useContext(ProductContext);
-
+  let nameIMG = useContext(ProductContext);
   // const handleClick = async () => {
   //   await getProducts();
   // };
@@ -135,6 +135,7 @@ const ProductsPage = () => {
                     )}
                   </>
                 )}
+                {(nameIMG = product.image)}
                 {/* {Images(product.image, product.name)} */}
               </Link>
               {/* {console.log(product.image.substring(7, 13))} */}

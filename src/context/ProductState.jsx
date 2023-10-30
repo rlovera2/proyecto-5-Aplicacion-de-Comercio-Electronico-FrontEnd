@@ -15,6 +15,8 @@ const initialState = {
   cart: [],
 };
 
+let nameIMG = "";
+
 const ProductState = ({ children }) => {
   const [globalState, dispatch] = useReducer(productReducer, initialState);
 
@@ -134,6 +136,7 @@ const ProductState = ({ children }) => {
           cart: globalState.cart,
           deleteCartProduct,
           vaciarCarrito,
+          nameIMG,
         }}
       >
         {children}
