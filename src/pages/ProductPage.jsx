@@ -1,14 +1,17 @@
 import { useContext, useEffect } from "react";
 import ProductContext from "../context/ProductContext";
 import { useParams } from "react-router-dom";
-import PropTypes from "prop-types";
+import require from "react";
 
 const ProductPage = () => {
-  const { getProduct, product, addProduct, nameIMG } =
-    useContext(ProductContext);
+  const { getProduct, product, addProduct } = useContext(ProductContext);
   const { id } = useParams();
 
-  let srcIMG = "../img/" + product.image + ".jpg";
+  const srcIMG = require("../img", true);
+
+  //  const srcIMG = import(`../img/${product.image}`);
+
+  //let srcIMG = "../img/" + product.image + ".jpg";
 
   // const rutaIMG = () => {
   //   {product.map((item) => ())
@@ -40,11 +43,11 @@ const ProductPage = () => {
             <div className="card mb-3">
               <div className="row g-0">
                 <div className="col-md-4">
-                  {/* {console.log(product.image)} */}
-                  {/* {console.log(srcIMG)} */}
-                  {console.log(nameIMG)}
+                  {console.log(product.image)}
+                  {console.log(srcIMG)}
+                  {/* {console.log(nameIMG)} */}
                   <img
-                    src={srcIMG}
+                    src={srcIMG(`./manos1.jpg`)}
                     className="img-fluid rounded-start"
                     alt={product.name}
                   />
@@ -79,10 +82,6 @@ const ProductPage = () => {
       </section>
     </>
   );
-};
-
-ProductPage.propTypes = {
-  nameIMG: PropTypes.string,
 };
 
 export default ProductPage;

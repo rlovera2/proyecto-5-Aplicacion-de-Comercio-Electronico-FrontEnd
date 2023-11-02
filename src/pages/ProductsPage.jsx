@@ -15,6 +15,7 @@ import manos6 from "../img/manos6.jpg";
 const ProductsPage = () => {
   const { getProducts, products, addProduct } = useContext(ProductContext);
   let nameIMG = useContext(ProductContext);
+  // let nameIMG = "";
   // const handleClick = async () => {
   //   await getProducts();
   // };
