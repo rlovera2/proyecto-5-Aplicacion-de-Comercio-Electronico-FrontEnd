@@ -5,9 +5,20 @@ import PaypalCheckoutButton from "../components/PayPalButton";
 import AuthContext from "../context/AuthContext";
 import { Link } from "react-router-dom";
 
+/************IMPORTANDP IMAGENES  *******/
+
+import manos1 from "../img/manos1.jpg";
+import manos2 from "../img/manos2.jpg";
+import manos3 from "../img/manos3.jpg";
+import manos4 from "../img/manos4.jpg";
+import manos5 from "../img/manos5.jpg";
+import manos6 from "../img/manos6.jpg";
+
 const CartPage = () => {
   const { cart, deleteCartProduct } = useContext(ProductContext);
   const { user } = useContext(AuthContext);
+
+  let nameIMG = useContext(ProductContext);
 
   const [ammount, setAmmount] = useState(0);
 
@@ -18,6 +29,23 @@ const CartPage = () => {
   useEffect(() => {
     setAmmount(cart.reduce((acc, product) => acc + product.price, 0));
   }, [cart]);
+
+  const getnameIMG = (name) => {
+    if (name == "manos1") {
+      nameIMG = manos1;
+    } else if (name == "manos2") {
+      nameIMG = manos2;
+    } else if (name == "manos3") {
+      nameIMG = manos3;
+    } else if (name == "manos4") {
+      nameIMG = manos4;
+    } else if (name == "manos5") {
+      nameIMG = manos5;
+    } else if (name == "manos6") {
+      nameIMG = manos6;
+    }
+    return nameIMG;
+  };
 
   return (
     <>
@@ -30,7 +58,7 @@ const CartPage = () => {
               <div className="row g-0">
                 <div className="col-md-4">
                   <img
-                    src={item.image}
+                    src={getnameIMG(item.image)}
                     className="img-fluid rounded-start"
                     alt={item.name}
                   />

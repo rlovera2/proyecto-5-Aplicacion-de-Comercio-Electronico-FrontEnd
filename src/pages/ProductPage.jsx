@@ -1,28 +1,49 @@
 import { useContext, useEffect } from "react";
 import ProductContext from "../context/ProductContext";
 import { useParams } from "react-router-dom";
-import require from "react";
+//import require from "react";
+
+/************IMPORTANDP IMAGENES  *******/
+
+import manos1 from "../img/manos1.jpg";
+import manos2 from "../img/manos2.jpg";
+import manos3 from "../img/manos3.jpg";
+import manos4 from "../img/manos4.jpg";
+import manos5 from "../img/manos5.jpg";
+import manos6 from "../img/manos6.jpg";
 
 const ProductPage = () => {
   const { getProduct, product, addProduct } = useContext(ProductContext);
   const { id } = useParams();
 
-  const srcIMG = require("../img", true);
+  let nameIMG = useContext(ProductContext);
+
+  //  const srcIMG = require("../img", true);
 
   //  const srcIMG = import(`../img/${product.image}`);
 
   //let srcIMG = "../img/" + product.image + ".jpg";
 
-  // const rutaIMG = () => {
-  //   {product.map((item) => ())
-  //   if (product.image == "manos1") {
-  //     import manos1 from "../img/manos1.jpg";
-  //   }
-  // };
-
   // const handleClick = async () => {
   //   await getProduct(id);
   // };
+
+  const getnameIMG = (name) => {
+    if (name == "manos1") {
+      nameIMG = manos1;
+    } else if (name == "manos2") {
+      nameIMG = manos2;
+    } else if (name == "manos3") {
+      nameIMG = manos3;
+    } else if (name == "manos4") {
+      nameIMG = manos4;
+    } else if (name == "manos5") {
+      nameIMG = manos5;
+    } else if (name == "manos6") {
+      nameIMG = manos6;
+    }
+    return nameIMG;
+  };
 
   const handleAddProduct = (id) => {
     //console.log(id);
@@ -43,11 +64,12 @@ const ProductPage = () => {
             <div className="card mb-3">
               <div className="row g-0">
                 <div className="col-md-4">
-                  {console.log(product.image)}
-                  {console.log(srcIMG)}
+                  {/* {console.log(product.image)} */}
+                  {/* {console.log(srcIMG)} */}
                   {/* {console.log(nameIMG)} */}
+
                   <img
-                    src={srcIMG(`./manos1.jpg`)}
+                    src={getnameIMG(product.image)}
                     className="img-fluid rounded-start"
                     alt={product.name}
                   />
