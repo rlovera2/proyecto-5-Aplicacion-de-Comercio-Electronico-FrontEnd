@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import { useContext, useEffect } from "react";
 import ProductContext from "../context/ProductContext";
 import { Link } from "react-router-dom";
@@ -43,7 +44,6 @@ const ProductsPage = () => {
   return (
     <>
       <Header title="Products" />
-
       <br />
       <div className="row row-cols-1 row-cols-md-3 g-4">
         {products.map((product) => (
@@ -168,18 +168,8 @@ const ProductsPage = () => {
           </div>
         ))}
       </div>
-      <br />
-      {/* <div className="row row-cols-1 row-cols-md-3 g-4">
-        <div className="card">
-          <img src={manos1} className="card-img-top" alt="manos" />
-          <div className="card-body">
-            <h5 className="card-title">Modelo elegante</h5>
-            <p className="card-text">
-              US$ <h5>40</h5>
-            </p>
-          </div>
-        </div>
-      </div> */}
+      <br /> <br />
+      <Footer />
     </>
   );
 };

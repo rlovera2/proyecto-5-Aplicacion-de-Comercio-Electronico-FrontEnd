@@ -71,7 +71,7 @@ const LoginPage = () => {
       </main>
       <section className="row">
         <article className="col">
-          <pre>{JSON.stringify(user, null, 2)}</pre>
+          {/* <pre>{JSON.stringify(user, null, 2)}</pre> */}
           {/* {user?.user_name} */}
         </article>
       </section>

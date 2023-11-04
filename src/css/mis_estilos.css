@@ -1,12 +1,66 @@
+/*****************************************************/
+/*********** Definiendo estilo a los enlace **********/
+/*****************************************************/
+
+a{
+    color:  rgb(239, 181, 10);
+    text-decoration: none;
+    
+    }
+    a:link{
+        color: rgb(239, 181, 10);
+        text-decoration: none;
+    }
+    
+    a:hover{
+        color:rgb(239, 181, 10);
+        text-decoration: underline;
+    
+    }
+    
+    a:active {
+        color:red;
+        }
+    
+        a:visited {
+            color:rgb(245, 203, 77);
+    
+        }
+
+/***********************************************
+/************DEEFINIENDO CLASES ****************
+/**********************************************/
+
 .imagenes_home{
     align-items:center ;
    /* align-content: center; */
    /* height: 100px; */
    border-radius: 14px;
-   padding: 4px;
+   padding: 2px;
+   background-color: darkslategrey;
 
 }
 .contenedorHome{
     align-content: center;
     align-items: center;
+}
+
+
+.contenedor_footer{
+    display: flex;
+    flex-flow: wrap;
+    justify-content:space-evenly; 
+    align-items: center;
+    background-color: darkslategray;
+    font-size:medium;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style:normal;
+    color: white;
+    width: auto;
+    height: auto;
+         
+}
+.menu_footer{
+
+text-align: center;
 }

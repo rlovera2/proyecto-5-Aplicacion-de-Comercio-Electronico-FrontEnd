@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import ProductContext from "../context/ProductContext";
 import { useParams } from "react-router-dom";
+import Footer from "../components/Footer";
 //import require from "react";
 
 /************IMPORTANDP IMAGENES  *******/
@@ -57,7 +58,6 @@ const ProductPage = () => {
   return (
     <>
       <br />
-
       <section className="row">
         <article className="col">
           {product && (
@@ -102,6 +102,8 @@ const ProductPage = () => {
           )}
         </article>
       </section>
+      <br /> <br />
+      <Footer />
     </>
   );
 };

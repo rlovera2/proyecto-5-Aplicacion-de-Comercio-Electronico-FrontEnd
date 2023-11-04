@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-
+import Footer from "../components/Footer";
 /************IMPORTANDP IMAGENES  *******/
 
 import manos1 from "../img/manos1.jpg";
@@ -13,19 +13,15 @@ const HomePage = () => {
   return (
     <>
       <Header title="Home Page" />
-
-      <main className="row">
-        <article className="col">
+      <main className="row ">
+        <article className="col ">
           <p>
             Come with us and let yourself be pampered so that you feel like a
             queen, choose the design of your choice
           </p>
 
           <div style={{ width: "50%" }}>
-            <div
-              id="carouselExampleIndicators"
-              className="carousel slide contenedorHome"
-            >
+            <div id="carouselExampleIndicators" className="carousel slide">
               <div className="carousel-indicators">
                 <button
                   type="button"
@@ -144,6 +140,9 @@ const HomePage = () => {
           </div>
         </article>
       </main>
+      <br />
+      <br />
+      <Footer />
     </>
   );
 };

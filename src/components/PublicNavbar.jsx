@@ -72,6 +72,7 @@ const PublicNavbar = () => {
           </ul>
           <ul className="navbar-nav mb-2 mb-lg-0">
             <li className="nav-item dropdown">
+              <a name="account"></a>
               <a
                 className="nav-link dropdown-toggle"
                 href="/"
