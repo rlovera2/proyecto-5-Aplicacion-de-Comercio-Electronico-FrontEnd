@@ -16,6 +16,7 @@ const initialState = {
 };
 
 let nameIMG = "";
+let globalCant = 0;
 
 const ProductState = ({ children }) => {
   const [globalState, dispatch] = useReducer(productReducer, initialState);
@@ -137,6 +138,7 @@ const ProductState = ({ children }) => {
           deleteCartProduct,
           vaciarCarrito,
           nameIMG,
+          globalCant,
         }}
       >
         {children}

@@ -10,7 +10,8 @@ const Footer = () => {
             <NavLink to="/">Home</NavLink> |{" "}
             <NavLink to="/products">Products</NavLink> |{" "}
             <NavLink to="/about">About</NavLink> |{" "}
-            <NavLink to="/cart">Cart</NavLink> | <a href="#account">Account</a>
+            <NavLink to="/cart">Cart</NavLink> |{" "}
+            <a href="./#account">Account</a>
             <br />
             <br />
             Para cualquier falla en el sistema puede ponerse en contacto con el

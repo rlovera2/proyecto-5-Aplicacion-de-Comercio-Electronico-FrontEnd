@@ -15,6 +15,11 @@ import manos6 from "../img/manos6.jpg";
 
 const ProductsPage = () => {
   const { getProducts, products, addProduct } = useContext(ProductContext);
+  let { globalCant } = useContext(ProductContext);
+
+  // const [nCant, setnCant] = useState();
+
+  // setnCant(0);
 
   //let nameIMG = useContext(ProductContext);
   // let nameIMG = "";
@@ -40,6 +45,29 @@ const ProductsPage = () => {
   //     </>
   //   );
   // }
+
+  // const quantityProduct = (quantity) => {
+  //   let quantityItems = [];
+  //   quantity = 2;
+  //   for (let i = 1; i <= quantity; i++) {
+  //     quantityItems.push(`<option value="${[i]}">${[i]}</option>`);
+  //   }
+
+  //   //return console.log(quantityItems);
+
+  //   return { quantityItems };
+  // };
+
+  // const loadQuantityProduct = (quantity) => {
+  //   globalCant = quantity;
+  //   alert(globalCant);
+  // };
+
+  // const handleInputChange = () => {
+  //   // setnCant({ ...nCant, [e.target.name]: e.target.value });
+  //   globalCant = document.nCant.value;
+  //   alert(globalCant);
+  // };
 
   return (
     <>
@@ -137,7 +165,6 @@ const ProductsPage = () => {
                     )}
                   </>
                 )}
-                {/* {(nameIMG = "")} */}
                 {/* {Images(product.image, product.name)} */}
               </Link>
               {/* {console.log(product.image.substring(7, 13))} */}
@@ -147,15 +174,77 @@ const ProductsPage = () => {
                 <h4>
                   <p className="card-text">{product.price}</p>
                 </h4>
-                <h6>Available in stock [ {product.quantity} ] units </h6>
+                {product.quantity == 0 ? (
+                  <>
+                    <h6>
+                      <i>
+                        {" "}
+                        Sorry, there are no units available for this product at
+                        this time.
+                      </i>
+                    </h6>
+                  </>
+                ) : (
+                  <>
+                    <h6>Available in stock [ {product.quantity} ] units </h6>
+                    <p />
+                  </>
+                )}
+                {product.quantity == 0 ? (
+                  <>
+                    <p className="textoNotDisponible">
+                      <h5>Not available</h5>
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <p className="textoDisponible">
+                      <h5>Available</h5>
+                    </p>
+                    {/* ******************************************************************************************** */}
+
+                    {/* <select
+                      id="nCantInput"
+                      name="nCant"
+                      onChange={handleInputChange}
+                    >
+                      {quantityProduct(product.quantity)}
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                    <br />
+                    <br /> */}
+                  </>
+                )}
                 <div className="d-flex justify-content-between">
-                  <button
-                    type="button"
-                    className="btn btn-warning btn-lg"
-                    onClick={() => handleAddProduct(product.id)}
-                  >
-                    <i className="bi bi-cart-plus" />
-                  </button>
+                  {/* si no existen productos se desabilita el boton de agregar
+                      al carrito */}
+                  {product.quantity == 0 ? (
+                    <>
+                      <button
+                        type="button"
+                        className="btn btn-warning btn-lg"
+                        onClick={() => handleAddProduct(product.id)}
+                        disabled
+                      >
+                        <i className="bi bi-cart-plus" />
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <button
+                        type="button"
+                        className="btn btn-warning btn-lg"
+                        onClick={() => handleAddProduct(product.id)}
+                      >
+                        <i className="bi bi-cart-plus" />
+                      </button>
+                    </>
+                  )}
+
                   <Link
                     to={`/products/${product.id}`}
                     className="btn btn-info btn-lg"

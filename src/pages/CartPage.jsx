@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import { useContext, useState, useEffect } from "react";
 import ProductContext from "../context/ProductContext";
-import PaypalCheckoutButton from "../components/PayPalButton";
+//import PaypalCheckoutButton from "../components/PayPalButton";
 import AuthContext from "../context/AuthContext";
 import { Link } from "react-router-dom";
 
@@ -13,6 +13,81 @@ import manos3 from "../img/manos3.jpg";
 import manos4 from "../img/manos4.jpg";
 import manos5 from "../img/manos5.jpg";
 import manos6 from "../img/manos6.jpg";
+
+import {
+  PayPalScriptProvider,
+  PayPalButtons,
+  usePayPalScriptReducer,
+} from "@paypal/react-paypal-js";
+
+// This value is from the props in the UI
+const style = { layout: "vertical" };
+
+function createOrder() {
+  // replace this url with your server
+  return fetch(
+    "https://react-paypal-js-storybook.fly.dev/api/paypal/create-order",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // use the "body" param to optionally pass additional order information
+      // like product ids and quantities
+      body: JSON.stringify({
+        cart: [
+          {
+            sku: "1blwyeo8",
+            quantity: 2,
+          },
+        ],
+      }),
+    }
+  )
+    .then((response) => response.json())
+    .then((order) => {
+      // Your code here after create the order
+      return order.id;
+    });
+}
+function onApprove(data) {
+  // replace this url with your server
+  return fetch(
+    "https://react-paypal-js-storybook.fly.dev/api/paypal/capture-order",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        orderID: data.orderID,
+      }),
+    }
+  )
+    .then((response) => response.json())
+    .then((orderData) => {
+      // Your code here after capture the order
+    });
+}
+
+// Custom component to wrap the PayPalButtons and show loading spinner
+const ButtonWrapper = ({ showSpinner }) => {
+  const [{ isPending }] = usePayPalScriptReducer();
+
+  return (
+    <>
+      {showSpinner && isPending && <div className="spinner" />}
+      <PayPalButtons
+        style={style}
+        disabled={false}
+        forceReRender={[style]}
+        fundingSource={undefined}
+        createOrder={createOrder}
+        onApprove={onApprove}
+      />
+    </>
+  );
+};
 
 const CartPage = () => {
   const { cart, deleteCartProduct } = useContext(ProductContext);
@@ -95,18 +170,33 @@ const CartPage = () => {
               <br />
               {user.user_name ? (
                 <>
-                  <p>Boton Paypal</p>
+                  {/* <p>Boton Paypal</p>
                   <PaypalCheckoutButton
                     currency={"USD"}
                     amount={ammount}
                     showSpinner={false}
-                  />
+                  /> */}
+                  <div style={{ maxWidth: "250px", minHeight: "200px" }}>
+                    <PayPalScriptProvider
+                      options={{
+                        clientId: "test",
+                        components: "buttons",
+                        currency: "USD",
+                      }}
+                    >
+                      <ButtonWrapper showSpinner={false} amount={ammount} />
+                    </PayPalScriptProvider>
+                  </div>
+                  ;
+                  <br />
+                  <br />
                 </>
               ) : (
                 <>
                   <Link to="/login" className="btn btn-success">
                     Login
                   </Link>
+                  <br />
                   <br />
                 </>
               )}
