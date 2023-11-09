@@ -69,42 +69,42 @@ const HomePage = () => {
                   <div className="carousel-item active">
                     <img
                       src={manos1}
-                      className="d-block w-100 imagenes_home"
+                      className="d-block w-100 imagenes"
                       alt="..."
                     />
                   </div>
                   <div className="carousel-item">
                     <img
                       src={manos2}
-                      className="d-block w-100 imagenes_home"
+                      className="d-block w-100 imagenes"
                       alt="..."
                     />
                   </div>
                   <div className="carousel-item">
                     <img
                       src={manos3}
-                      className="d-block w-100 imagenes_home"
+                      className="d-block w-100 imagenes"
                       alt="..."
                     />
                   </div>
                   <div className="carousel-item">
                     <img
                       src={manos4}
-                      className="d-block w-100 imagenes_home"
+                      className="d-block w-100 imagenes"
                       alt="..."
                     />
                   </div>
                   <div className="carousel-item">
                     <img
                       src={manos5}
-                      className="d-block w-100 imagenes_home"
+                      className="d-block w-100 imagenes"
                       alt="..."
                     />
                   </div>
                   <div className="carousel-item">
                     <img
                       src={manos6}
-                      className="d-block w-100 imagenes_home"
+                      className="d-block w-100 imagenes"
                       alt="..."
                     />
                   </div>

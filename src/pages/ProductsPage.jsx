@@ -149,7 +149,7 @@ const ProductsPage = () => {
                                       <>
                                         <img
                                           src={product.image}
-                                          className="card-img-top"
+                                          className="card-img-top "
                                           alt={product.name}
                                           name={product.image}
                                         />
