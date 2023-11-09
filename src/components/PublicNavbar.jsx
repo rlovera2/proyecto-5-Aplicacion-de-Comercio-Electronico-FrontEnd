@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
 import ProductContext from "../context/ProductContext";
+import logo from "../img/manos_silueta1.jpg";
 
 const PublicNavbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -10,7 +11,13 @@ const PublicNavbar = () => {
     <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
       <div className="container">
         <NavLink className="navbar-brand" to="/home">
-          Queens Hands
+          <img src={logo} className="logo" />
+        </NavLink>
+        &nbsp;
+        <NavLink className="navbar-brand" to="/home">
+          <h5>
+            <i>Queens Hands</i>
+          </h5>
         </NavLink>
         <button
           className="navbar-toggler"
