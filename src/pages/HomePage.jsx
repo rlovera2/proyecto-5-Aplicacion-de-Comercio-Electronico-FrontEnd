@@ -12,10 +12,7 @@ import manos6 from "../img/manos6.jpg";
 const HomePage = () => {
   return (
     <>
-      <Header
-        title="Queens Hands
-"
-      />
+      <Header title="Queens Hands" />
       <main className="row ">
         <article className="col ">
           <p>
@@ -138,7 +135,7 @@ const HomePage = () => {
               <br />
               <div className="card-body">
                 <p className="card-text">
-                  Discover how you can have queens handst.
+                  Discover how you can have queens hands.
                 </p>
               </div>
             </div>
