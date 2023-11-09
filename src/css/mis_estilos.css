@@ -53,6 +53,7 @@ a{
     flex-flow: wrap;
     justify-content:space-evenly; 
     align-items: center;
+    align-content: center;
     background-color: darkslategray;
     font-size:medium;
     font-family: Arial, Helvetica, sans-serif;
