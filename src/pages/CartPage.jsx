@@ -165,8 +165,10 @@ const CartPage = () => {
         <article className="col">
           {cart.length > 0 ? (
             <>
-              <p className="fs-1">Total:</p>
-              <p className="fs-2">{ammount}</p>
+              <p className="fs-2">Total taxes ( 7% ):</p>
+              <p className="fs-2">{(ammount * 7) / 100}</p>
+              <p className="fs-1 textoTotal">Total del pedido:</p>
+              <p className="fs-2 textoTotal">{ammount + (ammount * 7) / 100}</p>
               <br />
               {user.user_name ? (
                 <>
