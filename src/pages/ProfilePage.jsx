@@ -10,9 +10,9 @@ const ProfilePage = () => {
       <Header title="User Profile" />
       <br />
       <main className="row">
-        <div className="card mb-3" style={{ maxWidth: 540 }}>
+        <div className="card mb-3">
           <div className="row g-0">
-            <div className="col-md-4">
+            <div className="col-md-3 logoUser">
               <img
                 src={logoUser}
                 className="img-fluid rounded-start"
