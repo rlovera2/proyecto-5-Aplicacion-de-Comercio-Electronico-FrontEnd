@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import { useState, useContext } from "react";
 import AuthContext from "../context/AuthContext";
-// import { loginService } from "../services/authServices";
+//import { loginService } from "../services/authServices";
 
 const initForm = {
   user_name: "",
@@ -24,15 +24,39 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await iniciarSesion(form);
+    if (form.user_name == "") {
+      limpiarMensajesError();
+      document.getElementById("mensaje_user_name").style.display = "inline";
+      document.getElementById("inputUserName").focus();
+    } else if (form.user_name.length <= 2) {
+      limpiarMensajesError();
+      document.getElementById("mensaje_user_name").style.display = "inline";
+      document.getElementById("inputUserName").focus();
+    } else if (form.password == "") {
+      limpiarMensajesError();
+      document.getElementById("mensaje_password").style.display = "inline";
+      document.getElementById("inputPassword").focus();
+    } else if (form.password.length < 4) {
+      limpiarMensajesError();
+      document.getElementById("mensaje_password").style.display = "inline";
+      document.getElementById("inputPassword").focus();
+    } else {
+      limpiarMensajesError();
+      await iniciarSesion(form);
 
-    setForm(initForm);
+      setForm(initForm);
+    }
+  };
+
+  const limpiarMensajesError = () => {
+    document.getElementById("mensaje_user_name").style.display = "none";
+    document.getElementById("mensaje_password").style.display = "none";
   };
 
   return (
     <>
-      <Header title="Login Page" />
-
+      <Header title="Login" />
+      <br />
       <main className="row">
         <article className="col">
           <form onSubmit={handleSubmit}>
@@ -49,6 +73,9 @@ const LoginPage = () => {
                 onChange={handleChange}
               />
             </div>
+            <div id="mensaje_user_name" className="mensaje">
+              Por favor ingrese un [ <i>nombre de usuario</i> ] valido, gracias.
+            </div>
             <div className="mb-3">
               <label htmlFor="inputPassword" className="form-label">
                 Password
@@ -62,6 +89,11 @@ const LoginPage = () => {
                 onChange={handleChange}
               />
             </div>
+            <div id="mensaje_password" className="mensaje">
+              Por favor ingrese un [<i> Password</i> ] valido, gracias.
+              <br />
+              <br />
+            </div>
 
             <button type="submit" className="btn btn-primary">
               Iniciar Sesion
@@ -72,7 +104,8 @@ const LoginPage = () => {
       <section className="row">
         <article className="col">
           {/* <pre>{JSON.stringify(user, null, 2)}</pre> */}
-          {/* {user?.user_name} */}
+
+          {user?.user_name}
         </article>
       </section>
     </>

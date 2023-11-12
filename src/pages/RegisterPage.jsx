@@ -24,14 +24,38 @@ const RegisterPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await registrarUsuario(form);
+    if (form.user_name == "") {
+      limpiarMensajesError();
+      document.getElementById("mensaje_user_name").style.display = "inline";
+      document.getElementById("inputUserName").focus();
+    } else if (form.user_name.length <= 2) {
+      limpiarMensajesError();
+      document.getElementById("mensaje_user_name").style.display = "inline";
+      document.getElementById("inputUserName").focus();
+    } else if (form.password == "") {
+      limpiarMensajesError();
+      document.getElementById("mensaje_password").style.display = "inline";
+      document.getElementById("inputPassword").focus();
+    } else if (form.password.length < 4) {
+      limpiarMensajesError();
+      document.getElementById("mensaje_password").style.display = "inline";
+      document.getElementById("inputPassword").focus();
+    } else {
+      await registrarUsuario(form);
 
-    setForm(initForm);
+      setForm(initForm);
+    }
+  };
+
+  const limpiarMensajesError = () => {
+    document.getElementById("mensaje_user_name").style.display = "none";
+    document.getElementById("mensaje_password").style.display = "none";
   };
 
   return (
     <>
-      <Header title="Register Page" />
+      <Header title="Register user" />
+      <br />
 
       <main className="row">
         <article className="col">
@@ -49,6 +73,9 @@ const RegisterPage = () => {
                 onChange={handleChange}
               />
             </div>
+            <div id="mensaje_user_name" className="mensaje">
+              Por favor ingrese un [ <i>nombre de usuario</i> ] valido, gracias.
+            </div>
             <div className="mb-3">
               <label htmlFor="inputPassword" className="form-label">
                 Password
@@ -61,6 +88,12 @@ const RegisterPage = () => {
                 value={form.password}
                 onChange={handleChange}
               />
+            </div>
+
+            <div id="mensaje_password" className="mensaje">
+              Por favor ingrese un [<i> Password</i> ] valido, gracias.
+              <br />
+              <br />
             </div>
 
             <button type="submit" className="btn btn-primary">

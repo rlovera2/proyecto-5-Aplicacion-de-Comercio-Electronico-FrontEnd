@@ -20,7 +20,7 @@ const HomePage = () => {
             queen, choose the design of your choice
           </p>
           <center>
-            <div style={{ width: "70%" }}>
+            <div style={{ width: "50%" }}>
               <div id="carouselExampleIndicators" className="carousel slide">
                 <div className="carousel-indicators">
                   <button
