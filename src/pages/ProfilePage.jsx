@@ -21,7 +21,9 @@ const ProfilePage = () => {
             </div>
             <div className="col-md-8">
               <div className="card-body">
+                <div className="atributosUserName">&nbsp;&nbsp;User name:</div>
                 <h4 className="card-title">{user.user_name}</h4>
+                <div className="atributosUserName">&nbsp;&nbsp;ID:</div>
                 <p className="card-text">{user.id}</p>
                 <p className="card-text">
                   <small className="text-body-secondary">

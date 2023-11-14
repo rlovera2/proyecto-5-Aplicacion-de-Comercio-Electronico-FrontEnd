@@ -119,3 +119,10 @@ text-align: center;
         align-content:flex-start;
         
 }
+
+.atributosUserName{
+        background-color: rgb(28, 28, 42);
+        color: white;
+        width: 14%;
+        
+    }
