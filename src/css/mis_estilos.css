@@ -126,3 +126,12 @@ text-align: center;
         width: 28%;
 
     }
+
+
+    .tituloDetallesPago{
+        background-color: rgb(28, 28, 42);
+        color: white;
+        width: auto;
+        height: 30px;
+
+    }

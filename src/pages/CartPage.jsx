@@ -165,63 +165,72 @@ const CartPage = () => {
         <article className="col">
           {cart.length > 0 ? (
             <>
-              <table>
-                <tr>
-                  <td>
-                    <p className="fs-2">Total taxes ( 7% ):</p>
-                  </td>
-                  <td>
-                    <p className="fs-2">US$ {(ammount * 7) / 100}</p>
-                  </td>
-                </tr>
-              </table>
-              ----------------------------------------------------------
-              <table>
-                <tr>
-                  <td>
-                    <p className="fs-1 textoTotal">Total del pedido:</p>
-                  </td>
-                  <td>
-                    <p className="fs-2 textoTotal">
-                      US$
-                      {ammount + (ammount * 7) / 100}
-                    </p>
-                  </td>
-                </tr>
-              </table>
-              <br />
-              {user.user_name ? (
-                <>
-                  {/* <p>Boton Paypal</p>
+              <div className="card" style={{ width: "50%" }}>
+                <ul className="list-group list-group-flush">
+                  <li className="tituloDetallesPago">
+                    {" "}
+                    &nbsp;&nbsp;Order confirmation
+                  </li>
+                  <li className="list-group-item">
+                    <table>
+                      <tr>
+                        <td>
+                          <p className="fs-2">Total taxes ( 7% ):</p>
+                        </td>
+                        <td>
+                          <p className="fs-2">US$ {(ammount * 7) / 100}</p>
+                        </td>
+                      </tr>
+                    </table>
+                    ----------------------------------------------------------
+                    <table>
+                      <tr>
+                        <td>
+                          <p className="fs-1 textoTotal">Total del pedido:</p>
+                        </td>
+                        <td>
+                          <p className="fs-2 textoTotal">
+                            US$
+                            {ammount + (ammount * 7) / 100}
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                    {user.user_name ? (
+                      <>
+                        {/* <p>Boton Paypal</p>
                   <PaypalCheckoutButton
                     currency={"USD"}
                     amount={ammount}
                     showSpinner={false}
                   /> */}
-                  <div style={{ maxWidth: "250px", minHeight: "200px" }}>
-                    <PayPalScriptProvider
-                      options={{
-                        clientId: "test",
-                        components: "buttons",
-                        currency: "USD",
-                      }}
-                    >
-                      <ButtonWrapper showSpinner={false} amount={ammount} />
-                    </PayPalScriptProvider>
-                  </div>
-                  ;
-                  <br />
-                  <br />
-                </>
-              ) : (
-                <>
-                  <Link to="/login" className="btn btn-success">
-                    Login
-                  </Link>
-                  <br />
-                  <br />
-                </>
-              )}
+                        <div style={{ maxWidth: "250px", minHeight: "200px" }}>
+                          <PayPalScriptProvider
+                            options={{
+                              clientId: "test",
+                              components: "buttons",
+                              currency: "USD",
+                            }}
+                          >
+                            <ButtonWrapper
+                              showSpinner={false}
+                              amount={ammount}
+                            />
+                          </PayPalScriptProvider>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <Link to="/login" className="btn btn-success">
+                          Login
+                        </Link>
+                        <br />
+                        <br />
+                      </>
+                    )}
+                  </li>
+                </ul>
+              </div>
             </>
           ) : (
             <>
