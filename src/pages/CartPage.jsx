@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import { useContext, useState, useEffect } from "react";
 import ProductContext from "../context/ProductContext";
 //import PaypalCheckoutButton from "../components/PayPalButton";
@@ -231,6 +232,7 @@ const CartPage = () => {
                   </li>
                 </ul>
               </div>
+              <Footer />
             </>
           ) : (
             <>
