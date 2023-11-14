@@ -165,7 +165,7 @@ const CartPage = () => {
         <article className="col">
           {cart.length > 0 ? (
             <>
-              <div className="card" style={{ width: "70%" }}>
+              <div className="card">
                 <ul className="list-group list-group-flush">
                   <li className="tituloDetallesPago">
                     {" "}
