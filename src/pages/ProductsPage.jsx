@@ -12,6 +12,10 @@ import manos3 from "../img/manos3.jpg";
 import manos4 from "../img/manos4.jpg";
 import manos5 from "../img/manos5.jpg";
 import manos6 from "../img/manos6.jpg";
+import manos7 from "../img/manos7.jpg";
+import manos8 from "../img/manos8.jpg";
+import manos9 from "../img/manos9.jpg";
+import manos10 from "../img/manos10.jpg";
 
 const ProductsPage = () => {
   const { getProducts, products, addProduct } = useContext(ProductContext);
@@ -147,12 +151,65 @@ const ProductsPage = () => {
                                       </>
                                     ) : (
                                       <>
-                                        <img
-                                          src={product.image}
-                                          className="card-img-top "
-                                          alt={product.name}
-                                          name={product.image}
-                                        />
+                                        {product.image == "manos7" ? (
+                                          <>
+                                            <img
+                                              src={manos7}
+                                              className="card-img-top"
+                                              alt={product.name}
+                                              name={product.image}
+                                            />
+                                          </>
+                                        ) : (
+                                          <>
+                                            {product.image == "manos8" ? (
+                                              <>
+                                                <img
+                                                  src={manos8}
+                                                  className="card-img-top"
+                                                  alt={product.name}
+                                                  name={product.image}
+                                                />
+                                              </>
+                                            ) : (
+                                              <>
+                                                {product.image == "manos9" ? (
+                                                  <>
+                                                    <img
+                                                      src={manos9}
+                                                      className="card-img-top"
+                                                      alt={product.name}
+                                                      name={product.image}
+                                                    />
+                                                  </>
+                                                ) : (
+                                                  <>
+                                                    {product.image ==
+                                                    "manos10" ? (
+                                                      <>
+                                                        <img
+                                                          src={manos10}
+                                                          className="card-img-top"
+                                                          alt={product.name}
+                                                          name={product.image}
+                                                        />
+                                                      </>
+                                                    ) : (
+                                                      <>
+                                                        <img
+                                                          src={product.image}
+                                                          className="card-img-top "
+                                                          alt={product.name}
+                                                          name={product.image}
+                                                        />
+                                                      </>
+                                                    )}
+                                                  </>
+                                                )}
+                                              </>
+                                            )}
+                                          </>
+                                        )}
                                       </>
                                     )}
                                   </>
