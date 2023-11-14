@@ -240,27 +240,38 @@ const ProductsPage = () => {
                         this time.
                       </i>
                     </h6>
-                  </>
-                ) : (
-                  <>
-                    <h6>Available in stock [ {product.quantity} ] units </h6>
-                    <p />
-                  </>
-                )}
-                {product.quantity == 0 ? (
-                  <>
                     <p className="textoNotDisponible">
                       <h5>Not available</h5>
                     </p>
+                    {/* si no existen productos se desabilita el boton de agregar
+                      al carrito */}
+                    <div className="d-flex justify-content-between">
+                      <button
+                        type="button"
+                        className="btn btn-warning btn-lg"
+                        onClick={() => handleAddProduct(product.id)}
+                        disabled
+                      >
+                        <i className="bi bi-cart-plus" />
+                      </button>
+                      <Link
+                        to={`/products/${product.id}`}
+                        className="btn btn-info btn-lg"
+                      >
+                        <i className="bi bi-box-seam" />
+                      </Link>
+                    </div>
                   </>
                 ) : (
                   <>
                     <p className="textoDisponible">
                       <h5>Available</h5>
                     </p>
-                    {/* ******************************************************************************************** */}
+                    <h6>Available in stock [ {product.quantity} ] units </h6>
+                    <p />
+                    {/* ********************************************************************************************
 
-                    {/* <select
+                    <select
                       id="nCantInput"
                       name="nCant"
                       onChange={handleInputChange}
@@ -274,41 +285,24 @@ const ProductsPage = () => {
                     </select>
                     <br />
                     <br /> */}
+                    <div className="d-flex justify-content-between">
+                      <button
+                        type="button"
+                        className="btn btn-warning btn-lg"
+                        onClick={() => handleAddProduct(product.id)}
+                      >
+                        <i className="bi bi-cart-plus" />
+                      </button>
+
+                      <Link
+                        to={`/products/${product.id}`}
+                        className="btn btn-info btn-lg"
+                      >
+                        <i className="bi bi-box-seam" />
+                      </Link>
+                    </div>
                   </>
                 )}
-                <div className="d-flex justify-content-between">
-                  {/* si no existen productos se desabilita el boton de agregar
-                      al carrito */}
-                  {product.quantity == 0 ? (
-                    <>
-                      <button
-                        type="button"
-                        className="btn btn-warning btn-lg"
-                        onClick={() => handleAddProduct(product.id)}
-                        disabled
-                      >
-                        <i className="bi bi-cart-plus" />
-                      </button>
-                    </>
-                  ) : (
-                    <>
-                      <button
-                        type="button"
-                        className="btn btn-warning btn-lg"
-                        onClick={() => handleAddProduct(product.id)}
-                      >
-                        <i className="bi bi-cart-plus" />
-                      </button>
-                    </>
-                  )}
-
-                  <Link
-                    to={`/products/${product.id}`}
-                    className="btn btn-info btn-lg"
-                  >
-                    <i className="bi bi-box-seam" />
-                  </Link>
-                </div>
               </div>
             </div>
           </div>

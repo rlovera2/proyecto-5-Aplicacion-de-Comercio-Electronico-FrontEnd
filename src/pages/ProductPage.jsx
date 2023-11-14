@@ -86,15 +86,48 @@ const ProductPage = () => {
                         {/* </small> */}
                       </p>
                     </h4>
-                    <h6>Available in stock [ {product.quantity} ] units </h6>
+                    {product.quantity == 0 ? (
+                      <>
+                        <h6>
+                          <i>
+                            {" "}
+                            Sorry, there are no units available for this product
+                            at this time.
+                          </i>
+                        </h6>
+                        <p className="textoNotDisponible">
+                          <h5>Not available</h5>
+                        </p>
+                        {/* si no existen productos se desabilita el boton de agregar
+                      al carrito */}
+                        <button
+                          type="button"
+                          className="btn btn-warning btn-lg"
+                          onClick={() => handleAddProduct(product.id)}
+                          disabled
+                        >
+                          <i className="bi bi-cart-plus" />
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <p className="textoDisponible">
+                          <h5>Available</h5>
+                        </p>
+                        <h6>
+                          Available in stock [ {product.quantity} ] units{" "}
+                        </h6>
+                        <br />
+                        <button
+                          type="button"
+                          className="btn btn-warning btn-lg"
+                          onClick={() => handleAddProduct(product.id)}
+                        >
+                          <i className="bi bi-cart-plus" />
+                        </button>
+                      </>
+                    )}
                     <br />
-                    <button
-                      type="button"
-                      className="btn btn-warning btn-lg"
-                      onClick={() => handleAddProduct(product.id)}
-                    >
-                      <i className="bi bi-cart-plus" />
-                    </button>
                   </div>
                 </div>
               </div>
