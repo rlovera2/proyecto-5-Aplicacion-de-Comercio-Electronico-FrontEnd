@@ -1,8 +1,15 @@
-# React + Vite
+# Aplicacion web para compra de productos uñas acrílicas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## El objetivo de esta aplicacion es que el usuario pueda comprar productos de una tienda online.
 
-Currently, two official plugins are available:
+## ENLACES
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Enlaces de interes para el proyecto.
+
+- Repositorio BE: https://github.com/rlovera2/proyecto-5-Aplicacion-de-Comercio-Electronico
+- Repositorio FE: https://github.com/rlovera2/proyecto-5-Aplicacion-de-Comercio-Electronico-FrontEnd
+
+- Aplicacion publicada BE: https://proyecto-5-aplicacion-de-comercio.onrender.com/api
+- Aplicacion publicada FE: https://proyecto-5-ap-de-comercio-electronico.netlify.app/
+
+Autor: Roberto Lovera
