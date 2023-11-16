@@ -14,10 +14,8 @@ const Footer = () => {
             <a href="./#account">Account</a>
             <br />
             <br />
-            <p className="menu_footer">
-              Para cualquier falla en el sistema puede ponerse en contacto con
-              el adminisrador del sistema.
-            </p>
+            Para cualquier falla en el sistema puede ponerse en contacto con el
+            adminisrador del sistema.
             <br />
             <a href="mailto:adminsystem@queenshands.com" title="adminsystem">
               adminsystem@queenshands.com
