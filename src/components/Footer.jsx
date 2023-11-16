@@ -6,7 +6,7 @@ const Footer = () => {
       <footer className="contenedor_footer">
         <span>
           <br />
-          <div>
+          <div className="menu_footer">
             <NavLink to="/">Home</NavLink> |{" "}
             <NavLink to="/products">Products</NavLink> |{" "}
             <NavLink to="/about">About</NavLink> |{" "}
@@ -14,8 +14,10 @@ const Footer = () => {
             <a href="./#account">Account</a>
             <br />
             <br />
-            Para cualquier falla en el sistema puede ponerse en contacto con el
-            adminisrador del sistema.
+            <p className="menu_footer">
+              Para cualquier falla en el sistema puede ponerse en contacto con
+              el adminisrador del sistema.
+            </p>
             <br />
             <a href="mailto:adminsystem@queenshands.com" title="adminsystem">
               adminsystem@queenshands.com
