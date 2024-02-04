@@ -19,7 +19,7 @@ import manos10 from "../img/manos10.jpg";
 
 const ProductsPage = () => {
   const { getProducts, products, addProduct } = useContext(ProductContext);
-  let { globalCant } = useContext(ProductContext);
+  // let { globalCant } = useContext(ProductContext);
 
   // const [nCant, setnCant] = useState();
 
@@ -54,12 +54,13 @@ const ProductsPage = () => {
   //   let quantityItems = [];
   //   quantity = 2;
   //   for (let i = 1; i <= quantity; i++) {
-  //     quantityItems.push(`<option value="${[i]}">${[i]}</option>`);
+  //     //quantityItems.push(`<option value="${[i]}">${[i]}</option>`);
+  //     quantityItems.push('<option value="' + [i] + '">' + [i] + "</option>");
   //   }
 
-  //   //return console.log(quantityItems);
+  //   return console.log(quantityItems);
 
-  //   return { quantityItems };
+  //   //return { quantityItems };
   // };
 
   // const loadQuantityProduct = (quantity) => {
@@ -67,11 +68,18 @@ const ProductsPage = () => {
   //   alert(globalCant);
   // };
 
-  // const handleInputChange = () => {
-  //   // setnCant({ ...nCant, [e.target.name]: e.target.value });
-  //   globalCant = document.nCant.value;
-  //   alert(globalCant);
-  // };
+  const handleInputChange = () => {
+    //   // setnCant({ ...nCant, [e.target.name]: e.target.value });
+    //   globalCant = document.nCant.value;
+
+    let e = document.getElementById("nCantInput_manos2");
+    let value = e.options[e.selectedIndex].value;
+
+    //alert(document.getElementById("nCantInput_manos2").value);
+    alert(value);
+    //  console.log(document.getElementById('"' + modelo + '"').value);
+    // alert(modelo);
+  };
 
   return (
     <>
@@ -269,14 +277,15 @@ const ProductsPage = () => {
                     </p>
                     <h6>Available in stock [ {product.quantity} ] units </h6>
                     <p />
-                    {/* ********************************************************************************************
-
+                    {/* ******************************************************************************************** */}
+                    {/* {product.image == "manos2" ? ( */}
+                    {/* <> */}
                     <select
-                      id="nCantInput"
+                      id={`nCantInput_${product.image}}`}
                       name="nCant"
-                      onChange={handleInputChange}
+                      onChange={() => handleInputChange}
                     >
-                      {quantityProduct(product.quantity)}
+                      {/* {quantityProduct(product.quantity)} */}
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -284,7 +293,11 @@ const ProductsPage = () => {
                       <option value="5">5</option>
                     </select>
                     <br />
-                    <br /> */}
+                    <br />
+                    {/* </>
+                    ) : (
+                      <></>
+                    )} */}
                     <div className="d-flex justify-content-between">
                       <button
                         type="button"

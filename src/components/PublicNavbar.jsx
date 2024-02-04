@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
 import ProductContext from "../context/ProductContext";
-import logo from "../img/manos_silueta1.jpg";
+import logo from "../img/manos_silueta1.png";
 
 const PublicNavbar = () => {
   const { user, logout } = useContext(AuthContext);
